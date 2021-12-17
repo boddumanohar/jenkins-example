@@ -8,25 +8,29 @@ pipeline {
                 withMaven {
                     sh 'mvn clean compile'
                 }
-            }
-        }
 
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven {
-                    sh 'mvn test'
+                script {
+                    sh ('ls -al')
+                    sh ('ls -al target/')
                 }
             }
         }
 
+        // stage ('Testing Stage') {
 
-        stage ('Deployment Stage') {
-            steps {
-                withMaven {
-                    sh 'mvn deploy'
-                }
-            }
-        }
+        //     steps {
+        //         withMaven {
+        //             sh 'mvn test'
+        //         }
+        //     }
+        // }
+
+        // stage ('Deployment Stage') {
+        //     steps {
+        //         withMaven {
+        //             sh 'mvn deploy'
+        //         }
+        //     }
+        // }
     }
 }
